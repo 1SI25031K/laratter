@@ -20,4 +20,8 @@ class Tweet extends Model
   }
 
   //テーブル作ったらモデル
+  public function liked()
+  {
+      return $this->belongsToMany(User::class)->withTimestamps();
+  }
 }

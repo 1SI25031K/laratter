@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TweetController;
+use App\Http\Controllers\TweetLikeController;
 use Illuminate\Support\Facades\Route;
 
 
