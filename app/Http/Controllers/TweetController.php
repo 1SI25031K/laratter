@@ -75,6 +75,6 @@ class TweetController extends Controller
     {
         $tweet->delete();
 
-    return redirect()->route('tweets.index');
+        return redirect()->route('tweets.index');
     }
 }
