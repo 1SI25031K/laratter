@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-      {{ __('Tweet詳細') }}
+    {{ __('コメント詳細') }}
     </h2>
   </x-slot>
 
@@ -13,8 +13,8 @@
           <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $tweet->tweet }}</p>
           <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $tweet->user->name }}</p>
           <div class="text-gray-600 dark:text-gray-400 text-sm">
-            <p>作成日時: {{ $tweet->created_at->format('Y-m-d H:i') }}</p>
-            <p>更新日時: {{ $tweet->updated_at->format('Y-m-d H:i') }}</p>
+          <p>コメント作成日時: {{ $comment->created_at->format('Y-m-d H:i') }}</p>
+          <p>コメント更新日時: {{ $comment->updated_at->format('Y-m-d H:i') }}</p>
           </div>
           @if (auth()->id() == $tweet->user_id)
           <div class="flex mt-4">
@@ -46,7 +46,10 @@
           </div>
           <div class="mt-4">
             @foreach ($tweet->comments as $comment)
-            <p>{{ $comment->comment }} <span class="text-gray-600 dark:text-gray-400 text-sm">{{ $comment->user->name }} {{ $comment->created_at->format('Y-m-d H:i') }}</span></p>
+            <!-- 🔽 リンク追加 -->
+            <a href="{{ route('tweets.comments.show', [$tweet, $comment]) }}">
+              <p>{{ $comment->comment }} <span class="text-gray-600 dark:text-gray-400 text-sm">{{ $comment->user->name }} {{ $comment->created_at->format('Y-m-d H:i') }}</span></p>
+            </a>
             @endforeach
           </div>
         </div>
