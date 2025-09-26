@@ -26,11 +26,12 @@ class FollowController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(User $user)
     {
-        auth()->user()->follows()->attach($user->id);
-        return back();
+      auth()->user()->follows()->attach($user->id);
+      return back();
     }
+  
 
     /**
      * Display the specified resource.
@@ -59,9 +60,9 @@ class FollowController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
-        auth()->user()->follows()->detach($user->id);
-        return back();
+      auth()->user()->follows()->detach($user->id);
+      return back();
     }
 }
