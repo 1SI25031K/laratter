@@ -75,6 +75,7 @@
           @else
           <p>No tweets found.</p>
           @endif
+          
         </div>
       </div>
     </div>
